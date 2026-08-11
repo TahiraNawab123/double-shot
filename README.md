@@ -15,13 +15,13 @@ Double Shot is a sophisticated web application showcasing modern frontend develo
 
 ## Features
 
-- ⚡ **High Performance** - Next.js 16 with App Router for optimized performance
-- 🎨 **Modern UI** - React 19 with shadcn/ui and Base UI components
-- 🎯 **Type Safe** - Full TypeScript support with strict mode enabled
-- 🌊 **Utility-First Styling** - Tailwind CSS 4 with PostCSS for powerful customization
-- 📦 **Component Libraries** - Multiple UI component solutions for flexibility
-- 🔍 **Analytics** - Vercel Analytics integration for performance monitoring
-- 🚀 **Production Ready** - Optimized build configuration for deployment
+-  **High Performance** - Next.js 16 with App Router for optimized performance
+-  **Modern UI** - React 19 with shadcn/ui and Base UI components
+-  **Type Safe** - Full TypeScript support with strict mode enabled
+-  **Utility-First Styling** - Tailwind CSS 4 with PostCSS for powerful customization
+-  **Component Libraries** - Multiple UI component solutions for flexibility
+-  **Analytics** - Vercel Analytics integration for performance monitoring
+-  **Production Ready** - Optimized build configuration for deployment
 
 ## Tech Stack
 
@@ -47,7 +47,7 @@ Double Shot is a sophisticated web application showcasing modern frontend develo
 
 ### Development Tools
 - **PostCSS 8.5** - CSS transformations and plugins
-- **pnpm** - Fast, disk-space efficient package manager
+- **pnpm** - Fast, disk-space-efficient package manager
 
 ## Project Structure
 
@@ -175,10 +175,10 @@ pnpm remove package-name
 ```
 
 **Benefits of pnpm:**
-- ⚡ Faster installation times
-- 💾 Disk space efficiency with hard linking
-- 🔒 Strict dependency resolution
-- 📦 Support for monorepos (if needed in future)
+- Faster installation times
+- Disk space efficiency with hard linking
+- Strict dependency resolution
+- Support for monorepos (if needed in future)
 
 ## Learn More
 
@@ -189,11 +189,3 @@ pnpm remove package-name
 - [shadcn/ui Components](https://ui.shadcn.com) - Pre-built, accessible components
 - [Base UI Documentation](https://base-ui.com) - Unstyled component documentation
 - [Vercel Documentation](https://vercel.com/docs) - Deployment and hosting guide
-
-## Author
-
-Created by [@TahiraNawab123](https://github.com/TahiraNawab123)
-
----
-
-**Happy coding!** 🎉
