@@ -1,32 +1,74 @@
-# double-shot
+# Double Shot
 
-A modern, high-performance web application built with cutting-edge web technologies. double-shot combines the power of Next.js 16 with React 19, delivering a fast, responsive, and engaging user experience.
+![Next.js](https://img.shields.io/badge/Next.js-16.3.0-black?logo=nextdotjs)
+![React](https://img.shields.io/badge/React-19-blue?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.7.3-blue?logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4.3.3-06B6D4?logo=tailwindcss)
+
+A modern, high-performance web application built with cutting-edge web technologies. Double Shot combines the power of Next.js 16 with React 19, delivering a fast, responsive, and engaging user experience.
 
 **Live Demo:** [https://v0-double-shot.vercel.app](https://v0-double-shot.vercel.app)
 
-## Technologies
+## Project Overview
 
-- **Framework:** [Next.js 16](https://nextjs.org) - React framework for production
-- **UI Library:** [React 19](https://react.dev) - Modern JavaScript library for building user interfaces
-- **Language:** [TypeScript 5.7](https://www.typescriptlang.org) - Strongly typed JavaScript for safer code
-- **Styling:** [Tailwind CSS 4](https://tailwindcss.com) - Utility-first CSS framework
-- **UI Components:** 
-  - [shadcn](https://ui.shadcn.com) - High-quality React components
-  - [Base UI](https://base-ui.com) - Unstyled, accessible components
-  - [Lucide React](https://lucide.dev) - Beautiful icon library
-- **Utilities:**
-  - [Class Variance Authority](https://cva.style) - Type-safe component variants
-  - [Tailwind Merge](https://github.com/dcastil/tailwind-merge) - Merge Tailwind CSS classes
-  - [clsx](https://github.com/lukeed/clsx) - Conditional className builder
-- **Analytics:** [Vercel Analytics](https://vercel.com/analytics) - Performance monitoring and insights
-- **Package Manager:** pnpm
+Double Shot is a sophisticated web application showcasing modern frontend development practices using the latest versions of Next.js, React, and TypeScript. The project demonstrates best practices in component architecture, styling, and performance optimization.
+
+## Features
+
+- ⚡ **High Performance** - Next.js 16 with App Router for optimized performance
+- 🎨 **Modern UI** - React 19 with shadcn/ui and Base UI components
+- 🎯 **Type Safe** - Full TypeScript support with strict mode enabled
+- 🌊 **Utility-First Styling** - Tailwind CSS 4 with PostCSS for powerful customization
+- 📦 **Component Libraries** - Multiple UI component solutions for flexibility
+- 🔍 **Analytics** - Vercel Analytics integration for performance monitoring
+- 🚀 **Production Ready** - Optimized build configuration for deployment
+
+## Tech Stack
+
+### Core Framework
+- **Next.js 16.3.0** - React framework for production
+- **React 19** - Modern JavaScript library for building user interfaces
+- **TypeScript 5.7.3** - Strongly typed JavaScript for safer code
+
+### Styling & UI Components
+- **Tailwind CSS 4.3.3** - Utility-first CSS framework
+- **Base UI 1.5.0** - Unstyled, accessible React components
+- **shadcn 4.8.0** - High-quality, reusable React components
+- **Lucide React 1.16.0** - Beautiful, consistent icon library
+
+### Utilities & Helpers
+- **Class Variance Authority 0.7.1** - Type-safe component variants
+- **Tailwind Merge 3.3.1** - Intelligent Tailwind CSS class merging
+- **clsx 2.1.1** - Conditional className utility
+- **tw-animate-css 1.4.0** - Animation utility library
+
+### Analytics & Monitoring
+- **Vercel Analytics 1.6.1** - Performance monitoring and insights
+
+### Development Tools
+- **PostCSS 8.5** - CSS transformations and plugins
+- **pnpm** - Fast, disk-space efficient package manager
+
+## Project Structure
+
+```
+double-shot/
+├── app/                  # Next.js App Router pages and layouts
+├── components/           # Reusable React components
+├── lib/                  # Utility functions and helpers
+├── public/               # Static assets
+├── styles/               # Global styles and Tailwind configuration
+├── package.json          # Project dependencies
+├── tsconfig.json         # TypeScript configuration
+└── README.md             # Project documentation
+```
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ (or compatible)
-- pnpm (recommended) or npm/yarn
+- **Node.js** 18 or higher
+- **pnpm** (recommended) or npm/yarn
 
 ### Installation
 
@@ -35,80 +77,84 @@ A modern, high-performance web application built with cutting-edge web technolog
 git clone https://github.com/TahiraNawab123/double-shot.git
 cd double-shot
 
-# Install dependencies
+# Install dependencies with pnpm
 pnpm install
-# or
+
+# Or use npm
 npm install
-# or
+
+# Or use yarn
 yarn install
 ```
 
-### Development Server
+### Development
 
 Start the development server:
 
 ```bash
 pnpm dev
-# or
-npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-The application supports hot module replacement (HMR) — edit files and see changes instantly without page refresh.
-
-### Build for Production
-
-```bash
-pnpm build
-pnpm start
-```
+The application supports **Hot Module Replacement (HMR)** — edit files and see changes instantly without page refresh.
 
 ### Linting
+
+Run the linter to check code quality:
 
 ```bash
 pnpm lint
 ```
 
-## Project Structure
+## Production Build
 
-- `app/` - Next.js 16 App Router pages and layouts
-- `components/` - Reusable React components
-- `lib/` - Utility functions and helpers
-- `public/` - Static assets
-- `styles/` - Global styles and Tailwind CSS configuration
+Build the application for production:
+
+```bash
+pnpm build
+```
+
+Start the production server:
+
+```bash
+pnpm start
+```
+
+The build process creates an optimized production bundle with automatic CSS purging and code splitting.
+
+## Environment Variables
+
+This project does not require environment variables for local development. However, when deploying to production, ensure all necessary environment variables are configured in your deployment platform.
 
 ## Styling & Theming
 
 This project uses **Tailwind CSS 4** with **PostCSS** for powerful, maintainable styling:
 
-- Utility-first approach for rapid UI development
-- Support for dynamic theming and customization
-- Optimized output with automatic purging of unused styles
-- Responsive design built-in
+- **Utility-First Approach** - Rapid UI development using predefined utility classes
+- **Dynamic Theming** - Easy customization and theme switching
+- **Optimized Output** - Automatic purging of unused styles in production
+- **Responsive Design** - Mobile-first responsive design built-in
 
-Component styling leverages **Class Variance Authority** for type-safe variant management and **Tailwind Merge** for intelligent class merging.
+Component styling leverages **Class Variance Authority** for type-safe variant management and **Tailwind Merge** for intelligent class merging, ensuring clean and maintainable component code.
 
 ## Configuration
 
-- **TypeScript:** Strict mode enabled with path aliases (`@/*` maps to project root)
-- **Next.js:** Configured with App Router for modern React patterns
-- **PostCSS 8:** For advanced CSS transformations
-- **Tailwind CSS 4:** With latest features and optimizations
-
-## Learn More
-
-- [Next.js Documentation](https://nextjs.org/docs) - Explore Next.js features, API routes, and best practices
-- [React 19 Documentation](https://react.dev) - Learn about React's latest features and hooks
-- [Tailwind CSS Docs](https://tailwindcss.com/docs) - Comprehensive styling guide
-- [TypeScript Handbook](https://www.typescriptlang.org/docs) - Master TypeScript for type safety
-- [shadcn/ui](https://ui.shadcn.com) - Pre-built, accessible components for your app
+- **TypeScript** - Strict mode enabled with path aliases (`@/*` maps to project root)
+- **Next.js** - Configured with App Router for modern React patterns
+- **PostCSS 8** - Advanced CSS transformations and optimizations
+- **Tailwind CSS 4** - Latest features and performance optimizations
 
 ## Deployment
 
-This project is deployed on [Vercel](https://vercel.com), the platform optimized for Next.js applications.
+This project is optimized for deployment on **Vercel**, the platform built for Next.js applications:
+
+1. Connect your GitHub repository to Vercel
+2. Vercel automatically detects Next.js configuration
+3. Deploy with a single click or push to your main branch
+4. Built-in analytics and performance monitoring
+
+**Live Application:** [https://v0-double-shot.vercel.app](https://v0-double-shot.vercel.app)
 
 ## Package Management
 
@@ -123,14 +169,26 @@ pnpm add package-name
 
 # Update packages
 pnpm update
+
+# Remove a package
+pnpm remove package-name
 ```
 
-pnpm provides:
-- Faster installation times
-- Disk space efficiency with hard linking
-- Strict dependency resolution
-- Support for monorepos (if needed in future)
+**Benefits of pnpm:**
+- ⚡ Faster installation times
+- 💾 Disk space efficiency with hard linking
+- 🔒 Strict dependency resolution
+- 📦 Support for monorepos (if needed in future)
 
+## Learn More
+
+- [Next.js Documentation](https://nextjs.org/docs) - Explore Next.js features, API routes, and best practices
+- [React 19 Documentation](https://react.dev) - Learn about React's latest features and hooks
+- [Tailwind CSS Docs](https://tailwindcss.com/docs) - Comprehensive styling guide
+- [TypeScript Handbook](https://www.typescriptlang.org/docs) - Master TypeScript for type safety
+- [shadcn/ui Components](https://ui.shadcn.com) - Pre-built, accessible components
+- [Base UI Documentation](https://base-ui.com) - Unstyled component documentation
+- [Vercel Documentation](https://vercel.com/docs) - Deployment and hosting guide
 
 ## Author
 
