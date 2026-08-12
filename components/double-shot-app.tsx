@@ -13,6 +13,7 @@ import {
 } from '@/lib/auth-helpers'
 
 const GOOGLE_MAPS_LINK = 'https://maps.app.goo.gl/tyUJ1W2VnXqCoZMB9?g_st=aw'
+const FOODPANDA_LINK = 'https://foodpanda.pk/restaurant/hfez/double-shot-model-town?utm_campaign=google_reserve_place_order_action_CH-SEO_'
 
 interface Variant {
   name: string;
@@ -62,12 +63,12 @@ interface Order {
 
 const DEFAULT_MENU: MenuItem[] = [
   {
-    id: 'espresso',
-    name: 'Espresso',
-    description: 'A clean, syrupy double shot.',
-    price: 280,
-    category: 'Coffee',
-    image: '/double-shot-latte.png',
+id: 'espresso',
+  name: 'Espresso',
+  description: 'A clean, syrupy double shot.',
+  price: 280,
+  category: 'Coffee',
+  image: '/double-shot-espresso.png',
     variants: [
       { name: 'Single', price: 280 },
       { name: 'Double', price: 340 }
@@ -148,6 +149,54 @@ const DEFAULT_MENU: MenuItem[] = [
     featured: true,
     createdBy: 'System',
     createdAt: '2026-08-11T12:00:00.000Z'
+  },
+  {
+    id: 'spanish-latte',
+    name: 'Spanish Latte',
+    description: 'Silky espresso, condensed milk, and a soft finish.',
+    price: 620,
+    category: 'Coffee',
+    image: '/double-shot-official-spanish-latte.jpg',
+    available: true,
+    featured: true,
+    createdBy: 'System',
+    createdAt: '2026-08-11T12:00:00.000Z'
+  },
+  {
+    id: 'cold-brew',
+    name: 'Cold Brew',
+    description: 'Slow-steeped, bright, and quietly refreshing.',
+    price: 560,
+    category: 'Cold',
+    image: '/double-shot-official-cold-brew.jpg',
+    available: true,
+    featured: false,
+    createdBy: 'System',
+    createdAt: '2026-08-11T12:00:00.000Z'
+  },
+  {
+id: 'green-tea',
+  name: 'Green Tea',
+  description: 'A clean, calming cup for a slower kind of afternoon.',
+  price: 420,
+  category: 'Tea',
+  image: '/double-shot-green-tea.png',
+    available: true,
+    featured: false,
+    createdBy: 'System',
+    createdAt: '2026-08-11T12:00:00.000Z'
+  },
+  {
+    id: 'croissant',
+    name: 'Butter Croissant',
+    description: 'Golden, flaky layers baked fresh each morning.',
+    price: 390,
+    category: 'Bakes',
+    image: '/double-shot-croissant.png',
+    available: true,
+    featured: false,
+    createdBy: 'System',
+    createdAt: '2026-08-11T12:00:00.000Z'
   }
 ]
 
@@ -209,8 +258,19 @@ export default function DoubleShotApp() {
     const rawMenu = localStorage.getItem('menuItems')
     if (rawMenu) {
       try {
-        setMenuItems(JSON.parse(rawMenu))
-      } catch {}
+        const storedMenu = JSON.parse(rawMenu) as MenuItem[]
+        const defaultsById = new Map(DEFAULT_MENU.map((item) => [item.id, item]))
+        const refreshedMenu = storedMenu.map((item) => {
+          const defaultItem = defaultsById.get(item.id)
+          return defaultItem ? { ...item, image: defaultItem.image } : item
+        })
+        const storedIds = new Set(refreshedMenu.map((item) => item.id))
+        const mergedMenu = [...refreshedMenu, ...DEFAULT_MENU.filter((item) => !storedIds.has(item.id))]
+        setMenuItems(mergedMenu)
+        localStorage.setItem('menuItems', JSON.stringify(mergedMenu))
+      } catch {
+        setMenuItems(DEFAULT_MENU)
+      }
     } else {
       localStorage.setItem('menuItems', JSON.stringify(DEFAULT_MENU))
     }
@@ -1023,6 +1083,9 @@ function Home({ onMenu, onReserve }: { onMenu: () => void; onReserve: () => void
             <button className="secondary-button" onClick={onReserve}>
               RESERVE A TABLE
             </button>
+            <a className="delivery-button" href={FOODPANDA_LINK} target="_blank" rel="noreferrer">
+              ORDER DELIVERY <ArrowRight size={16} />
+            </a>
           </div>
         </div>
         <div className="hero-image">
@@ -1037,8 +1100,8 @@ function Home({ onMenu, onReserve }: { onMenu: () => void; onReserve: () => void
       </section>
       <section className="intro-section">
         <p className="eyebrow">THE DOUBLE SHOT EDIT</p>
-        <h2>Every moment<br /><em>crafted to return.</em></h2>
-        <p>From the first carefully brewed cup to the final, lingering taste, every detail is composed with precision and purpose. Discover our signature drinks and the serene atmosphere made for staying a little longer.</p>
+        <h2>Every moment<br /><em>made to linger.</em></h2>
+        <p>From the first carefully brewed cup to the last lingering taste, every detail is considered with quiet precision. Discover signature drinks, thoughtful plates, and a calm corner of Model Town made for staying a little longer.</p>
       </section>
       <section className="split-section">
         <div>
@@ -1102,16 +1165,21 @@ function MenuPage({ menuItems, onAdd }: { menuItems: MenuItem[]; onAdd: (item: M
         <h1>Good things,<br /><em>made daily.</em></h1>
         <p>Small rituals, big comfort. Everything is prepared in-house and served with care.</p>
       </div>
-      <div className="category-row">
-        {categories.map((item) => (
+      <div className="menu-toolbar">
+        <div className="category-row">
+          {categories.map((item) => (
           <button
             key={item}
             className={category === item ? 'category active' : 'category'}
             onClick={() => setCategory(item)}
-          >
-            {item}
-          </button>
-        ))}
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+        <a className="delivery-button menu-delivery" href={FOODPANDA_LINK} target="_blank" rel="noreferrer">
+          ORDER DELIVERY <ArrowRight size={14} />
+        </a>
       </div>
       <div className="menu-grid">
         {filtered.map((item) => (
