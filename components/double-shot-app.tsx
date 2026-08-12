@@ -156,7 +156,7 @@ const DEFAULT_MENU: MenuItem[] = [
     description: 'Silky espresso, condensed milk, and a soft finish.',
     price: 620,
     category: 'Coffee',
-    image: '/double-shot-latte.png',
+    image: '/double-shot-official-spanish-latte.jpg',
     available: true,
     featured: true,
     createdBy: 'System',
@@ -168,7 +168,7 @@ const DEFAULT_MENU: MenuItem[] = [
     description: 'Slow-steeped, bright, and quietly refreshing.',
     price: 560,
     category: 'Cold',
-    image: '/double-shot-iced.png',
+    image: '/double-shot-official-cold-brew.jpg',
     available: true,
     featured: false,
     createdBy: 'System',
@@ -180,7 +180,7 @@ const DEFAULT_MENU: MenuItem[] = [
     description: 'A clean, calming cup for a slower kind of afternoon.',
     price: 420,
     category: 'Tea',
-    image: '/double-shot-iced.png',
+    image: '/double-shot-official-beans.jpg',
     available: true,
     featured: false,
     createdBy: 'System',
@@ -259,8 +259,13 @@ export default function DoubleShotApp() {
     if (rawMenu) {
       try {
         const storedMenu = JSON.parse(rawMenu) as MenuItem[]
-        const storedIds = new Set(storedMenu.map((item) => item.id))
-        const mergedMenu = [...storedMenu, ...DEFAULT_MENU.filter((item) => !storedIds.has(item.id))]
+        const defaultsById = new Map(DEFAULT_MENU.map((item) => [item.id, item]))
+        const refreshedMenu = storedMenu.map((item) => {
+          const defaultItem = defaultsById.get(item.id)
+          return defaultItem ? { ...item, image: defaultItem.image } : item
+        })
+        const storedIds = new Set(refreshedMenu.map((item) => item.id))
+        const mergedMenu = [...refreshedMenu, ...DEFAULT_MENU.filter((item) => !storedIds.has(item.id))]
         setMenuItems(mergedMenu)
         localStorage.setItem('menuItems', JSON.stringify(mergedMenu))
       } catch {
