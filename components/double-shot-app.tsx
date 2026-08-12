@@ -63,12 +63,12 @@ interface Order {
 
 const DEFAULT_MENU: MenuItem[] = [
   {
-    id: 'espresso',
-    name: 'Espresso',
-    description: 'A clean, syrupy double shot.',
-    price: 280,
-    category: 'Coffee',
-    image: '/double-shot-latte.png',
+id: 'espresso',
+  name: 'Espresso',
+  description: 'A clean, syrupy double shot.',
+  price: 280,
+  category: 'Coffee',
+  image: '/double-shot-espresso.png',
     variants: [
       { name: 'Single', price: 280 },
       { name: 'Double', price: 340 }
@@ -175,12 +175,12 @@ const DEFAULT_MENU: MenuItem[] = [
     createdAt: '2026-08-11T12:00:00.000Z'
   },
   {
-    id: 'green-tea',
-    name: 'Green Tea',
-    description: 'A clean, calming cup for a slower kind of afternoon.',
-    price: 420,
-    category: 'Tea',
-    image: '/double-shot-official-beans.jpg',
+id: 'green-tea',
+  name: 'Green Tea',
+  description: 'A clean, calming cup for a slower kind of afternoon.',
+  price: 420,
+  category: 'Tea',
+  image: '/double-shot-green-tea.png',
     available: true,
     featured: false,
     createdBy: 'System',
